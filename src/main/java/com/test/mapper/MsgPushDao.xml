@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dao.MsgPushDao">
+  <resultMap id="BaseResultMap" type="com.test.model.MsgPushEntity">
+    <!--
+    @mbggenerated
+    -->
+    <id column="id_" jdbcType="VARCHAR" property="id" />
+    <result column="mall_code_" jdbcType="VARCHAR" property="mallCode" />
+    <result column="push_title_" jdbcType="VARCHAR" property="pushTitle" />
+    <result column="push_content_" jdbcType="VARCHAR" property="pushContent" />
+    <result column="push_time_" jdbcType="VARCHAR" property="pushTime" />
+    <result column="acc_mobile_" jdbcType="VARCHAR" property="accMobile" />
+    <result column="msg_type_" jdbcType="INTEGER" property="msgType" />
+    <result column="push_status_" jdbcType="INTEGER" property="pushStatus" />
+    <result column="to_channel_" jdbcType="VARCHAR" property="toChannel" />
+    <result column="push_agrs" jdbcType="VARCHAR" property="pushAgrs" />
+    <result column="create_by_" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_by_name_" jdbcType="VARCHAR" property="createByName" />
+    <result column="create_time_" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+    @mbggenerated
+    -->
+    id_, mall_code_, push_title_, push_content_, push_time_, acc_mobile_, msg_type_, 
+    push_status_, to_channel_, push_agrs, create_by_, create_by_name_, create_time_
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--
+    @mbggenerated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from tb_msg_push
+    where id_ = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--
+    @mbggenerated
+    -->
+    delete from tb_msg_push
+    where id_ = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.test.model.MsgPushEntity">
+    <!--
+    @mbggenerated
+    -->
+    insert into tb_msg_push (id_, mall_code_, push_title_, 
+      push_content_, push_time_, acc_mobile_, 
+      msg_type_, push_status_, to_channel_, 
+      push_agrs, create_by_, create_by_name_, 
+      create_time_)
+    values (#{id,jdbcType=VARCHAR}, #{mallCode,jdbcType=VARCHAR}, #{pushTitle,jdbcType=VARCHAR}, 
+      #{pushContent,jdbcType=VARCHAR}, #{pushTime,jdbcType=VARCHAR}, #{accMobile,jdbcType=VARCHAR}, 
+      #{msgType,jdbcType=INTEGER}, #{pushStatus,jdbcType=INTEGER}, #{toChannel,jdbcType=VARCHAR}, 
+      #{pushAgrs,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createByName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.test.model.MsgPushEntity">
+    <!--
+    @mbggenerated
+    -->
+    insert into tb_msg_push
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id_,
+      </if>
+      <if test="mallCode != null">
+        mall_code_,
+      </if>
+      <if test="pushTitle != null">
+        push_title_,
+      </if>
+      <if test="pushContent != null">
+        push_content_,
+      </if>
+      <if test="pushTime != null">
+        push_time_,
+      </if>
+      <if test="accMobile != null">
+        acc_mobile_,
+      </if>
+      <if test="msgType != null">
+        msg_type_,
+      </if>
+      <if test="pushStatus != null">
+        push_status_,
+      </if>
+      <if test="toChannel != null">
+        to_channel_,
+      </if>
+      <if test="pushAgrs != null">
+        push_agrs,
+      </if>
+      <if test="createBy != null">
+        create_by_,
+      </if>
+      <if test="createByName != null">
+        create_by_name_,
+      </if>
+      <if test="createTime != null">
+        create_time_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="mallCode != null">
+        #{mallCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pushTitle != null">
+        #{pushTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="pushContent != null">
+        #{pushContent,jdbcType=VARCHAR},
+      </if>
+      <if test="pushTime != null">
+        #{pushTime,jdbcType=VARCHAR},
+      </if>
+      <if test="accMobile != null">
+        #{accMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="msgType != null">
+        #{msgType,jdbcType=INTEGER},
+      </if>
+      <if test="pushStatus != null">
+        #{pushStatus,jdbcType=INTEGER},
+      </if>
+      <if test="toChannel != null">
+        #{toChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="pushAgrs != null">
+        #{pushAgrs,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createByName != null">
+        #{createByName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.test.model.MsgPushEntity">
+    <!--
+    @mbggenerated
+    -->
+    update tb_msg_push
+    <set>
+      <if test="mallCode != null">
+        mall_code_ = #{mallCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pushTitle != null">
+        push_title_ = #{pushTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="pushContent != null">
+        push_content_ = #{pushContent,jdbcType=VARCHAR},
+      </if>
+      <if test="pushTime != null">
+        push_time_ = #{pushTime,jdbcType=VARCHAR},
+      </if>
+      <if test="accMobile != null">
+        acc_mobile_ = #{accMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="msgType != null">
+        msg_type_ = #{msgType,jdbcType=INTEGER},
+      </if>
+      <if test="pushStatus != null">
+        push_status_ = #{pushStatus,jdbcType=INTEGER},
+      </if>
+      <if test="toChannel != null">
+        to_channel_ = #{toChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="pushAgrs != null">
+        push_agrs = #{pushAgrs,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        create_by_ = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createByName != null">
+        create_by_name_ = #{createByName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time_ = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.test.model.MsgPushEntity">
+    <!--
+    @mbggenerated
+    -->
+    update tb_msg_push
+    set mall_code_ = #{mallCode,jdbcType=VARCHAR},
+      push_title_ = #{pushTitle,jdbcType=VARCHAR},
+      push_content_ = #{pushContent,jdbcType=VARCHAR},
+      push_time_ = #{pushTime,jdbcType=VARCHAR},
+      acc_mobile_ = #{accMobile,jdbcType=VARCHAR},
+      msg_type_ = #{msgType,jdbcType=INTEGER},
+      push_status_ = #{pushStatus,jdbcType=INTEGER},
+      to_channel_ = #{toChannel,jdbcType=VARCHAR},
+      push_agrs = #{pushAgrs,jdbcType=VARCHAR},
+      create_by_ = #{createBy,jdbcType=VARCHAR},
+      create_by_name_ = #{createByName,jdbcType=VARCHAR},
+      create_time_ = #{createTime,jdbcType=TIMESTAMP}
+    where id_ = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
